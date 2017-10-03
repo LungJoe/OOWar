@@ -2,15 +2,24 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Random;
 
-public class Deck {
+public class Deck{
     ArrayList<Card> cards;
-    Random rand;
+    Random rand = new Random();
+    int randomNumber;
     
     
     public Deck() {
-	
+	cards = new ArrayList<Card>();
+	while(cards.size() < 52) {
+	    randomNumber = rand.nextInt(52);
+	    Card generateCard = new Card(randomNumber);
+	    if(cards.indexOf(generateCard) == -1) {
+		cards.add(generateCard);
+	    }
+	}
     }
     
     public void shuffleDeck() {
@@ -23,6 +32,15 @@ public class Deck {
 	return topCard;
 	
     }
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+    
     
     
 }
