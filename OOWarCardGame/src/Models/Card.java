@@ -2,7 +2,6 @@ package Models;
 
 public class Card //implements Comparable
 {
-	
 	String suit;
 	int rank;
 	

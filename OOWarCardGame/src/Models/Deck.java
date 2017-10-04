@@ -8,7 +8,6 @@ public class Deck{
 	String [] suits = {"HEARTS", "SPADES", "CLUBS", "DIAMONDS"};
 	ArrayList<Card> cards;
 	
-	
     public Deck(){
     	cards = new ArrayList<Card>();
     	createOrderedDeck();
