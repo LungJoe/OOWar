@@ -5,31 +5,24 @@ import Models.*;
 public class DeckController {
 	
 	public DealerDeck dealerDeck;
-	public Deck player1Deck;
-	public Deck player2Deck;
+	public Player player1;
+	public Player player2;
 	
 	public DeckController(){
 		dealerDeck = new DealerDeck();
-		player1Deck = new Deck();
-		player2Deck = new Deck();
-		
-		//dealerDeck.printDeck();
-		this.dealDeck();
-		System.out.println("DECK 1");
-		player1Deck.printDeck();
-		System.out.println("\n\nDECK 2");
-		player2Deck.printDeck();
+		player1 = new Player();
+		player2 = new Player();
 	}
 	
 	public void dealDeck(){
 		boolean dealPlayer1 = true;
 		while(!dealerDeck.cards.isEmpty()){
 			if(dealPlayer1){
-				player1Deck.cards.add(dealerDeck.cards.remove(0));
+				player1.getPlayerDeck().cards.add(dealerDeck.cards.remove(0));
 				dealPlayer1 = false;
 			}
 			if(!dealPlayer1){
-				player2Deck.cards.add(dealerDeck.cards.remove(0));
+				player2.getPlayerDeck().cards.add(dealerDeck.cards.remove(0));
 				dealPlayer1 = true;
 			}
 		}
