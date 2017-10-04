@@ -7,20 +7,17 @@ public class WarGame {
     ArrayList<Player> players;
 
     public WarGame(Player...newPlayers ) {
-	players = new ArrayList<Player>();
-	for(Player player: newPlayers) {
-	    players.add(player);
-	}
+    	players = new ArrayList<Player>();
+    	for(Player player: newPlayers) {
+    		players.add(player);
+    	}
     }
 
     public Player getPlayerByIndex(int index) {
-	return players.get(index);
+    	return players.get(index);
     }
 
     public void setPlayerByIndex(int index, Player player) {
-	players.set(index, player);
+    	players.set(index, player);
     }
-
-
-
 }

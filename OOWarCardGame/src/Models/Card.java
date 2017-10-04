@@ -7,35 +7,36 @@ public class Card implements Comparable{
     String value;
 
     public Card(String suit, String value) {
-	this.suit = suit;
-	this.value = value;
+    	this.suit = suit;
+    	this.value = value;
     }
 
     public Card(int number) {
-	int suitIndex = (int) number / 13;
-	this.suit = suits[suitIndex];
-	int numValue = number % 13;
-	if(numValue > 10) {
-	    this.value = faceCards[numValue % 10];
-	} else {
-	    this.value = Integer.toString(numValue);
-	}
+    	int suitIndex = (int) number / 13;
+    	this.suit = suits[suitIndex];
+    	int numValue = number % 13;
+    	if(numValue > 10) {
+    		this.value = faceCards[numValue % 10];
+    	}
+    	else {
+    		this.value = Integer.toString(numValue);
+    	}
     }
 
     public String getSuit() {
-	return suit;
+    	return suit;
     }
 
     public void setSuit(String suit) {
-	this.suit = suit;
+    	this.suit = suit;
     }
 
     public String getValue() {
-	return value;
+    	return value;
     }
 
     public void setValue(String value) {
-	this.value = value;
+    	this.value = value;
     }
 
     public int compareTo(Card otherCard) {
@@ -45,14 +46,13 @@ public class Card implements Comparable{
     
     @Override
     public String toString() {
-	return value + " of " + suit + "s";
+    	return value + " of " + suit + "s";
     }
 
     @Override
     public int compareTo(Object o) {
-	Card compareCard = (Card) o;
-	//if()
-	return 0;
+    	Card compareCard = (Card) o;
+    	//if()
+    	return 0;
     }
-
 }
