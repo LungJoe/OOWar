@@ -30,7 +30,7 @@ public class Driver {
     	Player Jack = new Player("Jack");
     	Player Jessica = new Player("Jessica");
 	
-    	WarGame war = new WarGame(Jack, Jessica);
+    	//WarTwoPlayer war = new WarTwoPlayer(Jack, Jessica);
     	Jack.showDeck();
 	
     	//war.plauGame();
