@@ -2,7 +2,7 @@ package Models;
 
 public class Card implements Comparable{
     String[] suits = {"Heart", "Spade", "Club", "Diamond"};
-    String[] faceCards = {"Ace","King","Queen","Jack"};
+    String[] faceCards = {"Jack","Queen","King","Ace"};
     String suit;
     String value;
 
@@ -13,14 +13,13 @@ public class Card implements Comparable{
 
     public Card(int number) {
     	int suitIndex = (int) number / 13;
-    	this.suit = suits[suitIndex];
-    	int numValue = number % 13;
-    	if(numValue > 10) {
-    		this.value = faceCards[numValue % 10];
-    	}
-    	else {
-    		this.value = Integer.toString(numValue);
-    	}
+		this.suit = suits[suitIndex];
+		int numValue = number % 13;
+		if (numValue > 8) {
+			this.value = faceCards[numValue % 9];
+		} else {
+			this.value = Integer.toString(numValue + 2) ;
+		}
     }
 
     public String getSuit() {

@@ -2,7 +2,6 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Random;
 
 public class Deck{
@@ -12,13 +11,11 @@ public class Deck{
     
     public Deck() {
     	cards = new ArrayList<Card>();
-    	while(cards.size() < 52) {
-    		randomNumber = rand.nextInt(52);
-    		Card generateCard = new Card(randomNumber);
-    		if(cards.indexOf(generateCard) == -1) {
-    			cards.add(generateCard);
-    		}
-    	}
+		for(int i = 0; i < 52; i++) {
+			Card generatedCard = new Card(i);
+			cards.add(generatedCard);
+		}
+		shuffleDeck();
     }
     
     public void shuffleDeck() {
@@ -37,5 +34,11 @@ public class Deck{
 
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
+    }
+    
+    public void showCards() {
+    	for(Card card : cards) {
+    		System.out.println(card.toString());
+    	}
     }
 }
