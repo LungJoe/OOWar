@@ -5,8 +5,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Deck{
-	String [] suits = {"Hearts", "Spades", "Clubs", "Diamonds"};
-	String [] faceCards = {"Ace","King","Queen","Jack"};
+	String [] suits = {"HEARTS", "SPADES", "CLUBS", "DIAMONDS"};
 	ArrayList<Card> cards;
 	
 	
@@ -30,6 +29,12 @@ public class Deck{
     public ArrayList<Card> getShuffledDeck(){
     	Collections.shuffle(cards);
     	return cards;
+    }
+    
+    public void showCards() {
+    	for(Card card : cards) {
+    		System.out.println(card);
+    	}
     }
 	
 	

@@ -24,16 +24,16 @@ public class Card //implements Comparable
 		
 		switch (rank){
 			case 1:
-				value = "Ace";
+				value = "ACE";
 				break;
 			case 11:
-				value = "Jack";
+				value = "JACK";
 				break;
 			case 12:
-				value = "Queen";
+				value = "QUEEN";
 				break;
 			case 13:
-				value = "King";
+				value = "KING";
 		}
     	return value + " of " + suit;
     }

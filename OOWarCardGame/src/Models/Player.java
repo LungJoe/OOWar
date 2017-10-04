@@ -16,9 +16,9 @@ public class Player {
     	this.deck = new Deck();
     }
     
-    //public void showDeck() {
-    //	deck.showCards();
-    //}
+    public void showDeck() {
+    	deck.showCards();
+    }
     
     public String getName() {
     	return name;
