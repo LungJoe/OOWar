@@ -3,7 +3,7 @@ package Models;
 import java.util.ArrayList;
 
 public class Pile {
-    ArrayList<Card> pile;
+    private ArrayList<Card> pile;
     
     public Pile() {
 	pile = new ArrayList<Card>();
@@ -11,6 +11,10 @@ public class Pile {
     
     public void addOntoPile(Card card) {
 	pile.add(card);
+    }
+    
+    public ArrayList<Card> getPile(){
+	return pile;
     }
     
     public void clearPile() {

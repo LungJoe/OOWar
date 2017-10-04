@@ -21,6 +21,24 @@ public class CompareCards {
 			return 0;
 	}
 	
+	
+	
+	public static int CompareTwoCards(Pile pile){
+		int highestRank = 0;
+		int index = -1;
+		for(Card card : pile.getPile()) {
+		    if(card.getRank() == highestRank) {
+			return -2;
+		    }
+		    else if( card.getRank() > highestRank) {
+			highestRank = card.getRank();
+			index += 1;
+		    }
+		}
+		
+		return index;
+	}
+	
 	//private String CompareThreeCards(){
 	//	for(int i = 0; i < 3; i++){
 			//if(cardsToBeCompared.get(i).getRank() )

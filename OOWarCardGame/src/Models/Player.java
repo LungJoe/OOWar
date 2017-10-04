@@ -16,8 +16,16 @@ public class Player {
     	this.deck = new Deck();
     }
     
+    public void addCardsToDeck(ArrayList<Card> newCards) {
+	deck.addCards(newCards);
+    }
+    
     public void showDeck() {
     	deck.showCards();
+    }
+    
+    public Card getNextCard() {
+	return deck.getNextCard();
     }
     
     public String getName() {

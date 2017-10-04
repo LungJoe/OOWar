@@ -6,7 +6,7 @@ import Models.*;
 
 public class Driver {
     public static void main(String[] args) {
-    	
+    	/*
     	Deck deck = new Deck();
     	ArrayList<Card> deckOfCards = new ArrayList<Card>();
     	
@@ -25,7 +25,7 @@ public class Driver {
     	for(Card card: deckOfCards){
     		System.out.println(card);
     	}
-    	
+    	*/
     	
     	Player Jack = new Player("Jack");
     	Player Jessica = new Player("Jessica");

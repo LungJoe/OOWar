@@ -35,7 +35,14 @@ public class Deck{
     		System.out.println(card);
     	}
     }
-	
+    
+    public Card getNextCard() {
+	return cards.remove(0);
+    }
+    
+    public void addCards(ArrayList<Card> newCards) {
+	cards.addAll(newCards);
+    }
 	
 	/**
     ArrayList<Card> cards;
