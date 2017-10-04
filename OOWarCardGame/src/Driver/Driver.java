@@ -4,12 +4,12 @@ import Models.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Player one = new Player("Jack");
-	Player two = new Player("Jessica");
+	Player Jack = new Player("Jack");
+	Player Jessica = new Player("Jessica");
 	
-	WarGame war = new WarGame(one, two);
-	one.getDeck().showCards();
+	WarGame war = new WarGame(Jack, Jessica);
+	Jack.showDeck();
 	
-	//System.out.println(one.getDeck().getCards().sort());
+	//war.plauGame();
     }
 }

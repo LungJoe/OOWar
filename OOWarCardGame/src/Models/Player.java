@@ -15,7 +15,11 @@ public class Player {
     	this.name = name;
     	this.deck = new Deck();
     }
-
+    
+    public void showDeck() {
+    	deck.showCards();
+    }
+    
     public String getName() {
     	return name;
     }

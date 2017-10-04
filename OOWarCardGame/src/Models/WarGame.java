@@ -13,6 +13,17 @@ public class WarGame {
     	}
     }
 
+    public void playGame() {
+    	int remainingPlayers = players.size();
+    	while(remainingPlayers > 1) {
+    		
+    	}
+    }
+    
+    public void war() {
+    	
+    }
+    
     public Player getPlayerByIndex(int index) {
     	return players.get(index);
     }
