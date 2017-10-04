@@ -1,7 +1,45 @@
 package Models;
 
-public class Card implements Comparable{
-    String[] suits = {"Heart", "Spade", "Club", "Diamond"};
+public class Card //implements Comparable
+{
+	
+	String suit;
+	int rank;
+	
+	public Card(String suit, int rank){
+		this.suit = suit;
+		this.rank= rank;
+	}
+	
+	public String getSuit(){
+		return suit;
+	}
+	
+	public int getRank(){
+		return rank;
+	}
+	
+	public String toString() {
+		String value = Integer.toString(rank);
+		
+		switch (rank){
+			case 1:
+				value = "Ace";
+				break;
+			case 11:
+				value = "Jack";
+				break;
+			case 12:
+				value = "Queen";
+				break;
+			case 13:
+				value = "King";
+		}
+    	return value + " of " + suit;
+    }
+    
+	/**
+	String[] suits = {"Heart", "Spade", "Club", "Diamond"};
     String[] faceCards = {"Jack","Queen","King","Ace"};
     String suit;
     String value;
@@ -48,10 +86,10 @@ public class Card implements Comparable{
     	return value + " of " + suit + "s";
     }
 
-    @Override
     public int compareTo(Object o) {
     	Card compareCard = (Card) o;
     	//if()
     	return 0;
     }
+    **/
 }

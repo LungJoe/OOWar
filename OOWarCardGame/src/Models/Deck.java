@@ -5,6 +5,35 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Deck{
+	String [] suits = {"Hearts", "Spades", "Clubs", "Diamonds"};
+	String [] faceCards = {"Ace","King","Queen","Jack"};
+	ArrayList<Card> cards;
+	
+	
+    public Deck(){
+    	cards = new ArrayList<Card>();
+    	createOrderedDeck();
+    }
+    
+    private void createOrderedDeck(){
+    	for(int i = 0; i < suits.length; i++){
+    		for(int j = 1; j <= 13; j++){
+    			cards.add(new Card(suits[i], j));
+    		}
+    	}
+    }
+    
+    public ArrayList<Card> getOrderedDeck(){
+    	return cards;
+    }
+    
+    public ArrayList<Card> getShuffledDeck(){
+    	Collections.shuffle(cards);
+    	return cards;
+    }
+	
+	
+	/**
     ArrayList<Card> cards;
     Random rand = new Random();
     int randomNumber;
@@ -41,4 +70,5 @@ public class Deck{
     		System.out.println(card.toString());
     	}
     }
+    **/
 }
