@@ -8,6 +8,7 @@ public class Driver {
     public static void main(String[] args) {
     	
     	Deck deck = new Deck();
+    	deck.shuffleDeck();
     	/*
     	ArrayList<Card> deckOfCards = new ArrayList<Card>();
     	
@@ -37,6 +38,7 @@ public class Driver {
     	Jack.showDeck();
     	System.out.println();
     	Jessica.showDeck();
-    	//war.plauGame();
+    	System.out.println();
+    	game.playGame();
     }
 }
