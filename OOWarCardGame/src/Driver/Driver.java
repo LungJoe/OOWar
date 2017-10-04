@@ -6,8 +6,9 @@ import Models.*;
 
 public class Driver {
     public static void main(String[] args) {
-    	/*
+    	
     	Deck deck = new Deck();
+    	/*
     	ArrayList<Card> deckOfCards = new ArrayList<Card>();
     	
     	deckOfCards = deck.getOrderedDeck();
@@ -30,9 +31,12 @@ public class Driver {
     	Player Jack = new Player("Jack");
     	Player Jessica = new Player("Jessica");
 	
-    	//WarTwoPlayer war = new WarTwoPlayer(Jack, Jessica);
-    	Jack.showDeck();
+    	WarTwoPlayer game = new WarTwoPlayer(Jack, Jessica, deck);
+    	game.setPlayerDecks();
 	
+    	Jack.showDeck();
+    	System.out.println();
+    	Jessica.showDeck();
     	//war.plauGame();
     }
 }

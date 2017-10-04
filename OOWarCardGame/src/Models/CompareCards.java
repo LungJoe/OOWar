@@ -1,7 +1,5 @@
 package Models;
 
-import java.util.ArrayList;
-
 public class CompareCards {
 	
 	Card cardA, cardB;

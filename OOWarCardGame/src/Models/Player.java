@@ -13,7 +13,7 @@ public class Player {
 
     public Player(String name) {
     	this.name = name;
-    	this.deck = new Deck();
+    	//this.deck = new Deck();
     }
     
     public void addCardsToDeck(ArrayList<Card> newCards) {
@@ -41,6 +41,6 @@ public class Player {
     }
 
     public void setDeck(Deck deck) {
-    	this.deck = deck;
+	this.deck = deck;
     }
 }

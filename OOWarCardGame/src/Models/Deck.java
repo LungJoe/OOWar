@@ -21,7 +21,7 @@ public class Deck{
     	}
     }
     
-    public ArrayList<Card> getOrderedDeck(){
+    public ArrayList<Card> getDeck(){
     	return cards;
     }
     
@@ -43,43 +43,19 @@ public class Deck{
     public void addCards(ArrayList<Card> newCards) {
 	cards.addAll(newCards);
     }
-	
-	/**
-    ArrayList<Card> cards;
-    Random rand = new Random();
-    int randomNumber;
     
-    public Deck() {
-    	cards = new ArrayList<Card>();
-		for(int i = 0; i < 52; i++) {
-			Card generatedCard = new Card(i);
-			cards.add(generatedCard);
-		}
-		shuffleDeck();
-    }
-    
-    public void shuffleDeck() {
-    	Collections.shuffle(cards);
-    }
-    
-    public Card getNextCard() {
-    	Card topCard = cards.get(0);
-    	cards.remove(0);
-    	return topCard;
-    }
-
-    public ArrayList<Card> getCards() {
-        return cards;
-    }
-
     public void setCards(ArrayList<Card> cards) {
-        this.cards = cards;
+	this.cards = cards;
     }
     
-    public void showCards() {
-    	for(Card card : cards) {
-    		System.out.println(card.toString());
-    	}
+    public Deck split() {
+	Deck subDeck = new Deck();
+	ArrayList<Card> halfStackOfDeck = new ArrayList<Card>();
+	for(int i = 0; i < 26; i++) {
+	    halfStackOfDeck.add(cards.remove(i));
+	}
+	subDeck.setCards(halfStackOfDeck);
+	return subDeck;
     }
-    **/
+    
 }

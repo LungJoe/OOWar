@@ -2,7 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 
-public class WarTwoPlayer {
+public class WarTwoPlayer extends War{
     Pile discardPile;
     Deck deck;
     Player playerOne;
@@ -23,21 +23,19 @@ public class WarTwoPlayer {
     	while(stillPlaying) {
     	    playerOneCard = playerOne.getNextCard();
     	    playerTwoCard = playerTwo.getNextCard();
+    	    
     	}
+    }
+    
+    public void setPlayerDecks() {
+	playerOne.setDeck(deck.split());
+	playerTwo.setDeck(deck);
     }
     
     public void war() {
     	
     	//needs more logic
     }
-    
-    public void setCurrentPlayCards() {
-	
-    }
-    
-    private void setNextTurn() {
-	discardPile.clearPile();
-	setCurrentPlayCards();
-    }
+
     
 }
