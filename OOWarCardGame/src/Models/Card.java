@@ -9,6 +9,7 @@ public class Card {
 		public Card(String suit, String name){
 			this.setSuit(suit);
 			this.setName(name);
+			this.setValue(name);
 		}
 
 		public String getSuit() {
@@ -47,5 +48,8 @@ public class Card {
 			case "King": this.value = 13; break;
 			case "Ace": this.value = 14; break;
 			}
+		}
+		public String toString(){
+			return getName() + " of " + getSuit();
 		}
 }

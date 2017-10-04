@@ -7,7 +7,7 @@ import Models.Card;
 public class Game1Controller extends GameController {
 	
 	public Game1Controller(){
-		
+		deckController = new DeckController();
 	}
 	
 	public void inputPlayerNames(){
@@ -35,7 +35,8 @@ public class Game1Controller extends GameController {
 		{
 			cardPlayer1 = deckController.player1.getPlayerDeck().cards.remove(0);
 			cardPlayer2 = deckController.player2.getPlayerDeck().cards.remove(0);
-			logger.logRound(cardPlayer1, cardPlayer2);
+			logger.logRound(this.deckController, cardPlayer1, cardPlayer2);
+			logger.logScore(this);
 		}
 	}
 }

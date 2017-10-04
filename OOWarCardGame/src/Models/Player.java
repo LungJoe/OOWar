@@ -5,7 +5,6 @@ public class Player {
 	private Deck playerDeck;
 
 	public Player(){
-		///setPlayerName(playerName);
 		playerDeck = new Deck();
 	}
 	

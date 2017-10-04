@@ -45,7 +45,7 @@ public class Game3Controller extends GameController {
 		{
 			cardPlayer1 = deckController.player1.getPlayerDeck().cards.remove(0);
 			cardPlayer2 = deckController.player2.getPlayerDeck().cards.remove(0);
-			logger.logRound(cardPlayer1, cardPlayer2);
+			logger.logRound(this.deckController, cardPlayer1, cardPlayer2);
 		}
 	}
 }
