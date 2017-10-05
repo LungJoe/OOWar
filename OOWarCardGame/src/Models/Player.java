@@ -5,7 +5,7 @@ public class Player {
 	private Deck playerDeck;
 
 	public Player(){
-		playerDeck = new Deck();
+		setPlayerDeck(new Deck());
 	}
 	
 	public String getPlayerName() {
@@ -18,5 +18,9 @@ public class Player {
 
 	public Deck getPlayerDeck() {
 		return playerDeck;
+	}
+
+	public void setPlayerDeck(Deck playerDeck) {
+		this.playerDeck = playerDeck;
 	}
 }

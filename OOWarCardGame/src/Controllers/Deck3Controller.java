@@ -12,7 +12,7 @@ public class Deck3Controller extends DeckController {
 	
 	public void dealDeck(){
 		int count = 0;
-		while(!dealerDeck.cards.isEmpty()){
+		while(count != 51){
 			if(count % 3 == 0)
 				player1.getPlayerDeck().cards.add(dealerDeck.cards.remove(0));
 			if(count % 3 == 1)
