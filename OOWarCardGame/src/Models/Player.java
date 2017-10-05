@@ -3,44 +3,57 @@ package Models;
 import java.util.ArrayList;
 
 public class Player {
-    String name;
-    Deck deck;
+	String name;
+	Deck deck;
 
-    public Player(String name, Deck deck) {
-    	this.name = name;
-    	this.deck = deck;
-    }
+	public Player(String name, Deck deck) {
+		this.name = name;
+		this.deck = deck;
+	}
 
-    public Player(String name) {
-    	this.name = name;
-    	//this.deck = new Deck();
-    }
-    
-    public void addCardsToDeck(ArrayList<Card> newCards) {
-	deck.addCards(newCards);
-    }
-    
-    public void showDeck() {
-    	deck.showCards();
-    }
-    
-    public Card getNextCard() {
-	return deck.getNextCard();
-    }
-    
-    public String getName() {
-    	return name;
-    }
+	public Player(String name) {
+		this.name = name;
+		// this.deck = new Deck();
+	}
 
-    public void setName(String name) {
-    	this.name = name;
-    }
+	public void addCardsToDeck(ArrayList<Card> newCards) {
+		deck.addCards(newCards);
+	}
 
-    public Deck getDeck() {
-    	return deck;
-    }
+	public void showDeck() {
+		deck.showCards();
+	}
 
-    public void setDeck(Deck deck) {
-	this.deck = deck;
-    }
+	public Card getNextCard() {
+		return deck.getNextCard();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Deck getDeck() {
+		return deck;
+	}
+
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+
+	public void addCardsToDeck(Card...cards) {
+		for(Card card : cards) {
+			deck.addCard(card);
+		}
+	}
+
+	public boolean stillHasCards() {
+		if(deck.getDeck().size() > 0) {
+			return true;
+		}
+		return false;
+	}
 }
