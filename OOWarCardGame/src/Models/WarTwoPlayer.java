@@ -22,11 +22,13 @@ public class WarTwoPlayer extends War {
 			playerOneCard = playerOne.getNextCard();
 			playerTwoCard = playerTwo.getNextCard();
 			if (CompareCards.CompareTwoCards(playerOneCard, playerTwoCard) == 1) {
-				System.out.printf("%s wins with %s over %s\n", playerOne.getName(), playerOneCard, playerTwoCard);
+				System.out.printf("%s wins with %s over %s ", playerOne.getName(), playerOneCard, playerTwoCard);
 				playerOne.addCardsToDeck(playerOneCard, playerTwoCard);
+				System.out.printf("One - %d, Two - %d\n", playerOne.getDeck().getDeck().size(), playerTwo.getDeck().getDeck().size());
 			} else if (CompareCards.CompareTwoCards(playerOneCard, playerTwoCard) == 2) {
-				System.out.printf("%s wins with %s over %s\n", playerTwo.getName(), playerTwoCard, playerOneCard);
+				System.out.printf("%s wins with %s over %s ", playerTwo.getName(), playerTwoCard, playerOneCard);
 				playerTwo.addCardsToDeck(playerOneCard, playerTwoCard);
+				System.out.printf("One - %d, Two - %d\n", playerOne.getDeck().getDeck().size(), playerTwo.getDeck().getDeck().size());
 			} else {
 				war();
 			}
@@ -41,6 +43,7 @@ public class WarTwoPlayer extends War {
 	}
 
 	public void war() {
+		
 		System.out.println("WAR!");
 		discardPile.addOntoPile(playerOneCard);
 		discardPile.addOntoPile(playerTwoCard);
@@ -60,6 +63,7 @@ public class WarTwoPlayer extends War {
 		} else {
 			war();
 		}
+		discardPile.clearPile();
 	}
 
 }

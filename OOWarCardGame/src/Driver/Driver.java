@@ -1,8 +1,8 @@
 package Driver;
 
-import java.util.ArrayList;
-
-import Models.*;
+import Models.Deck;
+import Models.Player;
+import Models.WarTwoPlayer;
 
 public class Driver {
 	public static void main(String[] args) {

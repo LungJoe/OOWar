@@ -14,11 +14,5 @@ public class CompareCards {
 			return 0;
 	}
 
-	// private String CompareThreeCards(){
-	// for(int i = 0; i < 3; i++){
-	// if(cardsToBeCompared.get(i).getRank() )
-	// }
-
-	// }
 
 }
