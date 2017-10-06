@@ -20,4 +20,12 @@ public class Pile {
 	public void clearPile() {
 		pile.clear();
 	}
+	
+	public boolean isEmpty(){
+		if(pile.size() == 0){
+			return true;
+		}
+		return false;
+	}
+
 }
