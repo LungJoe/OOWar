@@ -22,9 +22,9 @@ public class CompareCards {
 			return 2;
 		} else if ( (cardC.getRank() > cardA.getRank()) && (cardC.getRank() > cardB.getRank()) ){
 			return 3;
-		} else if ( ((cardA.getRank() ==  cardB.getRank()) && (cardA.getRank() == cardC.getRank())) ||
-					((cardB.getRank() ==  cardA.getRank()) && (cardB.getRank() == cardC.getRank()))	||
-					((cardC.getRank() ==  cardA.getRank()) && (cardC.getRank() == cardB.getRank()))){
+		} else if ( ((cardA.getRank() ==  cardB.getRank()) || (cardA.getRank() == cardC.getRank())) ||
+					((cardB.getRank() ==  cardA.getRank()) || (cardB.getRank() == cardC.getRank()))	||
+					((cardC.getRank() ==  cardA.getRank()) || (cardC.getRank() == cardB.getRank()))){
 			return 4;
 		} else {
 			return 0;

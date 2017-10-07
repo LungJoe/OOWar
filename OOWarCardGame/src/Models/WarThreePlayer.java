@@ -1,16 +1,20 @@
 package Models;
 
-public class WarThreePlayer extends War{
+import java.util.ArrayList;
+
+public class WarThreePlayer extends War2{
 	Pile discardPile;
-	Deck deck;
-	Player playerOne;
-	Player playerTwo;
-	Player playerThree;
+	ArrayList<Card> deck;
+	Players playerOne;
+	Players playerTwo;
+	Players playerThree;
 	Card playerOneCard;
 	Card playerTwoCard;
 	Card playerThreeCard;
-
-	public WarThreePlayer(Player playerOne, Player playerTwo, Player playerThree, Deck deck) {
+	ArrayList<Card> player1Deck, player2Deck, player3Deck;
+	
+ WarThreePlayer(Players playerOne, Players playerTwo, Players playerThree, ArrayList<Card> deck) {
+		super(deck);
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
 		this.playerThree = playerThree;
@@ -21,9 +25,9 @@ public class WarThreePlayer extends War{
 	public void playGame() {
 		// boolean stillPlaying = true;
 		int testIterations = 0;
-		while (playerOne.stillHasCards() && playerTwo.stillHasCards()) {
-			playerOneCard = playerOne.getNextCard();
-			playerTwoCard = playerTwo.getNextCard();
+		while (playerOne.hasCards() && playerTwo.hasCards()) {
+			playerOneCard = playerOne.drawCard();
+			playerTwoCard = playerTwo.drawCard();
 			playerThreeCard = playerThree.getNextCard();
 			if (CompareCards.CompareThreeCards(playerOneCard, playerTwoCard, playerThreeCard) == 1) {
 				displayWinner(playerOne, playerTwo,playerThree);
@@ -39,22 +43,26 @@ public class WarThreePlayer extends War{
 		}
 	}
 	
-	public void displayWinner(Player winner, Player firstLoser, Player secondLoser){
-		System.out.printf("%s wins with %s over %s ", winner.getName(), winner, firstLoser, secondLoser);
-		playerOne.addCardsToDeck(playerOneCard, playerTwoCard, playerThreeCard);
-		if (!discardPile.isEmpty()){
-			playerOne.addCardsToDeck(discardPile.getPile());
-		}
-		System.out.printf("One - %d, Two - %d\n, Three - %d\n", winner.getDeck().getDeck().size(), firstLoser.getDeck().getDeck().size(),
-				secondLoser.getDeck().getDeck().size());
-	}
+//	public void displayWinner(Player winner, Player firstLoser, Player secondLoser){
+//		System.out.printf("%s wins with %s over %s ", winner.getName(), winner, firstLoser, secondLoser);
+//		playerOne.addCardsToDeck(playerOneCard, playerTwoCard, playerThreeCard);
+//		if (!discardPile.isEmpty()){
+//			playerOne.addCardsToDeck(discardPile.getPile());
+//		}
+//		System.out.printf("One - %d, Two - %d\n, Three - %d\n", winner.getDeck().getDeck().size(), firstLoser.getDeck().getDeck().size(),
+//				secondLoser.getDeck().getDeck().size());
+//	}
 	
 
-	public void setPlayerDecks() {
-		playerOne.setDeck(deck.split());
-		playerTwo.setDeck(deck.split());
-		playerThree.setDeck(deck);
-	}
+    private void splitDeck(){
+    	int deckSize = gameDeck.size();
+    	int playerDeckSize = deckSize/2;;
+    	
+    	for(int i = 0; i < playerDeckSize; i++){
+    		player1Deck.add(gameDeck.get(i));
+    		player2Deck.add(gameDeck.get((deckSize -1)-i));
+    	}
+    }
 
 	public void war() {
 		System.out.println("WAR!");
