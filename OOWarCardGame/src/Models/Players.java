@@ -14,7 +14,11 @@ public class Players {
 	}
 
 	public Card drawCard() {
-		return playerDeck.remove(0);
+		try{
+			return playerDeck.remove(0);
+		}catch(IndexOutOfBoundsException e){
+			return null;
+		}
 	}
 
 	public int getScore() {
