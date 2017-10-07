@@ -10,6 +10,7 @@ public class Deck {
 	public Deck() {
 		cards = new ArrayList<Card>();
 		createOrderedDeck();
+		Collections.shuffle(cards);
 	}
 
 	private void createOrderedDeck() {
@@ -23,20 +24,20 @@ public class Deck {
 	public void clearDeck() {
 		cards.clear();
 	}
-	
+	/*
 	public void shuffleDeck() {
 		Collections.shuffle(cards);
 	}
-
+	*/
 	public ArrayList<Card> getDeck() {
 		return cards;
 	}
-
+	/*
 	public ArrayList<Card> getShuffledDeck() {
 		Collections.shuffle(cards);
 		return cards;
 	}
-
+	*/
 	public void showCards() {
 		for (Card card : cards) {
 			System.out.println(card);
