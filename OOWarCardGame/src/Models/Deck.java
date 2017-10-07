@@ -6,7 +6,7 @@ import java.util.Collections;
 public class Deck {
 	String[] suits = { "HEARTS", "SPADES", "CLUBS", "DIAMONDS" };
 	ArrayList<Card> cards;
-
+	int initialDeckSize = 52;
 	public Deck() {
 		cards = new ArrayList<Card>();
 		createOrderedDeck();
@@ -56,15 +56,16 @@ public class Deck {
 		this.cards = cards;
 	}
 
-	public Deck split() {
-		Deck subDeck = new Deck();
-		ArrayList<Card> halfStackOfDeck = new ArrayList<Card>();
-		for (int i = 0; i < 26; i++) {
-			halfStackOfDeck.add(cards.remove(i));
-		}
-		subDeck.setCards(halfStackOfDeck);
-		return subDeck;
-	}
+	public Deck split(int numberOfPlayers) {
+        int playerInitialDeckSize = initialDeckSize/numberOfPlayers;
+        Deck subDeck = new Deck();
+        ArrayList<Card> deckSection = new ArrayList<Card>();
+        for (int i = 0; i < playerInitialDeckSize; i++) {
+            deckSection.add(cards.remove(i));
+        }
+        subDeck.setCards(deckSection);
+        return subDeck;
+    }
 
 	public void addCard(Card card) {
 		cards.add(card);
