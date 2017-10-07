@@ -45,8 +45,14 @@ public class Players {
 	}
 
 	public void giveCards(ArrayList<Card> cardsRecieved) {
-		for (int i = 0; i < cardsRecieved.size(); i++) {
-			playerDeck.add(cardsRecieved.get(i));
+		for(Card card : cardsRecieved) {
+			playerDeck.add(card);
+		}
+	}
+	
+	public void printDeck(){
+		for(Card card: playerDeck){
+			System.out.println(card);
 		}
 	}
 }

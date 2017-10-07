@@ -102,11 +102,13 @@ public class WarVarient1 extends War2{
 		int counter = 0;
     	
     	while(player1.hasCards() && player2.hasCards()){
+    		
     		setUpRound();
-    		if(counter > numberOfRounds){
-    			log.numberOfRoundsReached();
-    			break;
-    		}
+    		
+    		//if(counter > numberOfRounds){
+    		//	log.numberOfRoundsReached();
+    		//	break;
+    		//}
     		counter++;
     		
     		winner = determineRoundWinner();
@@ -116,6 +118,10 @@ public class WarVarient1 extends War2{
     		awardWinner();
     		log.currentScore(player1.getScore(), player2.getScore());
     		downPile.clear();
+    		
+    		System.out.println("player1: " + player1.getDeckSize() + "\tplayer2: " + player2.getDeckSize());
+    		//System.out.println("Round: " + counter);
+    		
     	}
     	determineGameWinner();
     }
