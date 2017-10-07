@@ -16,7 +16,7 @@ public class Logger {
 	}
 	
 	public void roundWinner(Players winner){
-		System.out.println(player1.getName() + " wins the round!");
+		System.out.println(winner.getName() + " wins the round!");
 	}
 	
 	public void currentScore(int player1Score, int player2Score){
@@ -26,7 +26,26 @@ public class Logger {
 	}
 	
 	public void war(){
-		System.out.println("WAR!");
+		System.out.println("WAR!\n");
 	}
-		
+	
+	public void gameWinner(Players gameWinner){
+		System.out.printf("----------------------------------\n"
+							+ "%s won the game!"
+							+ "\n----------------------------------", 
+							gameWinner.getName());
+	}
+	
+	public void draw(){
+		System.out.println("----------------------------------\n"
+				+ "It's a DRAW!"
+				+ "\n----------------------------------" );
+	}
+	
+	public void emptyDeck(String name){
+		System.out.println(name + " ran out of cards!");
+	}
+	 public void numberOfRoundsReached(){
+		 System.out.println("~~The number of rounds has expired.~~\n");
+	 }	
 }

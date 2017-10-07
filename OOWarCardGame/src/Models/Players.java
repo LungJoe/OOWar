@@ -14,6 +14,7 @@ public class Players {
 	}
 
 	public Card drawCard() {
+		//System.out.println("Deck Size: " + getDeckSize());
 		try{
 			return playerDeck.remove(0);
 		}catch(IndexOutOfBoundsException e){
@@ -21,6 +22,13 @@ public class Players {
 		}
 	}
 
+	public boolean hasCards(){
+		if(getDeckSize() > 0)
+			return true;
+		else
+			return false;
+	}
+	
 	public int getScore() {
 		return score;
 	}
@@ -28,7 +36,11 @@ public class Players {
 	public String getName() {
 		return name;
 	}
-
+	
+	public int getDeckSize(){
+		return playerDeck.size();
+	}
+	
 	public void setScore(int newScore) {
 		score = newScore;
 	}

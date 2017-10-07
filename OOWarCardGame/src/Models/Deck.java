@@ -14,7 +14,7 @@ public class Deck {
 
 	private void createOrderedDeck() {
 		for (int i = 0; i < suits.length; i++) {
-			for (int j = 1; j <= 13; j++) {
+			for (int j = 2; j <= 14; j++) {
 				cards.add(new Card(suits[i], j));
 			}
 		}

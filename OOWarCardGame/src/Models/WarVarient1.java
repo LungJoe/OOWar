@@ -7,15 +7,21 @@ public class WarVarient1 extends War2{
 	Players player1, player2;
 	ArrayList<Card> player1Deck, player2Deck;
 	Card player1Upcard, player2Upcard;
-	
-	
+	int numberOfRounds;
+
     public WarVarient1(Players player1, Players player2, ArrayList<Card> deck) {
     	super(deck);
     	this.player1 = player1;
     	this.player2 = player2;
     	
+    	numberOfRounds = 15;
+    	
     	player1Deck = new ArrayList<Card>();
     	player2Deck = new ArrayList<Card>();
+    }
+    
+    public void setNumberOfRounds(int numberOfRounds){
+    	this.numberOfRounds = numberOfRounds;
     }
     
     private void splitDeck(){
@@ -34,53 +40,80 @@ public class WarVarient1 extends War2{
     	player2.giveCards(player2Deck);
     }
     
-    public Players determineRoundWinner(){
-    	Players winner = null;
+    private Players determineRoundWinner(){
+    	log.initialDraw(player1Upcard, player2Upcard);
     	compareValue = comparer.CompareTwoCards(player1Upcard, player2Upcard);
     	
     	if(compareValue == 1){
     		log.roundWinner(player1);
-			winner = player1;
+			return player1;
 		}
-    	
 		else if(compareValue == 2){
 			log.roundWinner(player2);
-			winner = player2;
+			return player2;
 		}
 		else if(compareValue == 0){
-			log.war();
-			war();
+			return war();
 		}
-		
-		return winner;
+		else
+			return null;
     }
-    
-    public void setUpRound() {
+
+    private void setUpRound() {    	
     	player1Upcard = player1.drawCard();
 		player2Upcard = player2.drawCard();
 		downPile.add(player1Upcard);
 		downPile.add(player2Upcard);
-    	
-        }
+	}
         
-    public void setUpWar() {
+    private void setUpWar() {
     	downPile.add(player1.drawCard());
     	downPile.add(player2.drawCard());
 	}
     
-    public void war(){
-    	setUpWar();
-    	determineRoundWinner().giveCards(downPile);;
-    	downPile.clear();
-    }
-    public void playGame(){
-    	player1Upcard = player1.drawCard();
-		player2Upcard = player2.drawCard();
+    private Players war(){
+    	Players warWinner;
+    	log.war();
+    	try{
+    		setUpWar();
+    		setUpRound();
+    		warWinner = determineRoundWinner();
+    	}catch(NullPointerException e){return null;}
     	
-    	while(player1Upcard != null && player2Upcard != null){
-    		log.initialDraw(player1Upcard, player2Upcard);
-    		determineRoundWinner().setScore(player1.getScore() + 1);
+    	return warWinner;
+    }
+    
+    private void determineGameWinner(){
+    	if(player1.getScore() > player2.getScore())
+    		log.gameWinner(player1);
+    	else if(player1.getScore() < player2.getScore())
+    		log.gameWinner(player2);
+    	else
+    		log.draw();
+    }
+    
+    public void playGame(){
+    	log.setPlayers(player1, player2);
+    	setUpRound();
+		int counter = 0;
+    	
+    	while(player1.hasCards() && player2.hasCards()){
+    		if(counter > numberOfRounds){
+    			log.numberOfRoundsReached();
+    			break;
+    		}
+    		counter++;
+    		
+    		winner = determineRoundWinner();
+    		if(winner == null)
+    			break;
+    		
+    		winner.giveCards(downPile);
+    		winner.setScore(winner.getScore() + downPile.size());
     		log.currentScore(player1.getScore(), player2.getScore());
+    		downPile.clear();
+    		setUpRound();
     	}
+    	determineGameWinner();
     }
 }

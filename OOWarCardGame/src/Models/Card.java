@@ -22,9 +22,6 @@ public class Card // implements Comparable
 		String value = Integer.toString(rank);
 
 		switch (rank) {
-		case 1:
-			value = "ACE";
-			break;
 		case 11:
 			value = "JACK";
 			break;
@@ -33,7 +30,11 @@ public class Card // implements Comparable
 			break;
 		case 13:
 			value = "KING";
+			break;
+		case 14:
+			value = "ACE";
 		}
+		
 		return value + " of " + suit;
 	}
 }
