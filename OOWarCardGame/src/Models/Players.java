@@ -14,7 +14,6 @@ public class Players {
 	}
 
 	public Card drawCard() {
-		//System.out.println("Deck Size: " + getDeckSize());
 		try{
 			return playerDeck.remove(0);
 		}catch(IndexOutOfBoundsException e){

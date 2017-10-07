@@ -13,7 +13,8 @@ public class TestDriver {
     	Players seymour = new Players("Seymour");
     	Players sandy = new Players("Sandy");
     	
-    	WarVarient1 game = new WarVarient1(seymour, sandy, deckOfCards);
+    	//WarVarient1 game = new WarVarient1(seymour, sandy, deckOfCards);
+    	WarVarient2 game = new WarVarient2(seymour, sandy, deckOfCards);
     	game.setNumberOfRounds(30);
     	game.dealCardsToPlayers();
     	game.playGame();

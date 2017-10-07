@@ -83,6 +83,11 @@ public class WarVarient1 extends War2{
     	return warWinner;
     }
     
+    public void awardWinner(){
+    	winner.giveCards(downPile);
+		winner.setScore(winner.getScore() + downPile.size());
+    }
+    
     private void determineGameWinner(){
     	if(player1.getScore() > player2.getScore())
     		log.gameWinner(player1);
@@ -94,10 +99,10 @@ public class WarVarient1 extends War2{
     
     public void playGame(){
     	log.setPlayers(player1, player2);
-    	setUpRound();
 		int counter = 0;
     	
     	while(player1.hasCards() && player2.hasCards()){
+    		setUpRound();
     		if(counter > numberOfRounds){
     			log.numberOfRoundsReached();
     			break;
@@ -108,11 +113,9 @@ public class WarVarient1 extends War2{
     		if(winner == null)
     			break;
     		
-    		winner.giveCards(downPile);
-    		winner.setScore(winner.getScore() + downPile.size());
+    		awardWinner();
     		log.currentScore(player1.getScore(), player2.getScore());
     		downPile.clear();
-    		setUpRound();
     	}
     	determineGameWinner();
     }
