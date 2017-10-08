@@ -29,10 +29,7 @@ public class TwoPlayerWar implements WarInterface{
     public void splitDeck(){
     	int deckSize = gameDeck.size();
     	int playerDeckSize = deckSize/2;
-    	
-//    	if(playerDeckSize%2 != 0)
-//    		playerDeckSize--;
-    	
+    	    	
     	for(int i = 0; i < playerDeckSize; i++){
     		player1Deck.add(gameDeck.get(i));
     		player2Deck.add(gameDeck.get((deckSize -1)-i));
@@ -90,7 +87,6 @@ public class TwoPlayerWar implements WarInterface{
     
     public void awardWinner(){
     	winner.giveCards(downPile);
-		//winner.setScore(winner.getScore() + downPile.size());
     	winner.addScore(downPile.size());
     }
     

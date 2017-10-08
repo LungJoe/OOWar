@@ -11,7 +11,6 @@ public class Deck {
 	public Deck() {
 		cards = new ArrayList<Card>();
 		createOrderedDeck();
-		//Collections.shuffle(cards);
 	}
 
 	private void createOrderedDeck() {
@@ -57,34 +56,7 @@ public class Deck {
 		this.cards = cards;
 	}
 
-	public Deck split(int numberOfPlayers) {
-        if(numberOfPlayers == 1){
-        	return this;
-        }
-		int playerInitialDeckSize = cards.size()/numberOfPlayers;
-        Deck subDeck = new Deck();
-        ArrayList<Card> deckSection = new ArrayList<Card>();
-        for (int i = 0; i < playerInitialDeckSize; i++) {
-            deckSection.add(cards.remove(i + (numberOfPlayers - 2)));
-        }
-        subDeck.setCards(deckSection);
-        return subDeck;
-    }
-
 	public void addCard(Card card) {
 		cards.add(card);
-	}
-	/*
-	public void giveDecksToPlayers(Players...playersArray) {
-		int playerCount = playersArray.length;
-		if(playerCount % 2 == 1){
-			cards.remove(0);
-		}
-		for(int i = 0; i < playerCount; i++) {
-			playersArray[i].setDeck(split(playerCount - i));
-		}
-	
-	}
-	*/
-	
+	}	
 }

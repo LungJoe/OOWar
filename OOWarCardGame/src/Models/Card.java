@@ -1,6 +1,6 @@
 package Models;
 
-public class Card // implements Comparable
+public class Card 
 {
 	String suit;
 	int rank;

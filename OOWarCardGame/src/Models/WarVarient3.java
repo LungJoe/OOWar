@@ -125,11 +125,11 @@ public class WarVarient3 implements WarInterface {
 		}
 		else if (player1Score == player3Score){
 			log.draw(player2, player3);
-			return new Players (player2.getName() + " " +player3.getName());
+			return new Players (player1.getName() + " " +player3.getName());
 		}
 		else{
 			log.draw(player2, player3);
-			return null;
+			return new Players (player2.getName() + " " + player3.getName());
 		}
 	}
 
