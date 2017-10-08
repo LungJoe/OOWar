@@ -76,9 +76,13 @@ public class Deck {
 	
 	public void giveDecksToPlayers(Players...playersArray) {
 		int playerCount = playersArray.length;
+		if(playerCount % 2 == 1){
+			cards.remove(0);
+		}
 		for(int i = 0; i < playerCount; i++) {
 			playersArray[i].setDeck(split(playerCount - i));
 		}
+		
 	}
 
 }
