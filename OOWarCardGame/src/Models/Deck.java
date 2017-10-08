@@ -74,7 +74,7 @@ public class Deck {
 	public void addCard(Card card) {
 		cards.add(card);
 	}
-	/**
+	/*
 	public void giveDecksToPlayers(Players...playersArray) {
 		int playerCount = playersArray.length;
 		if(playerCount % 2 == 1){
@@ -83,7 +83,8 @@ public class Deck {
 		for(int i = 0; i < playerCount; i++) {
 			playersArray[i].setDeck(split(playerCount - i));
 		}
-		
+	
 	}
-	**/
+	*/
+	
 }

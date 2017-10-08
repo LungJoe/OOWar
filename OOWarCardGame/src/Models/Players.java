@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Players {
 	String name;
@@ -63,7 +64,7 @@ public class Players {
 		}
 	}
 	
-	//public void printDeck(){
-	//	playerDeck.showCards();
-	//}
+	public void printDeck(){
+		Arrays.toString(playerDeck.toArray());
+	}
 }

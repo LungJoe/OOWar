@@ -31,7 +31,7 @@ public class Logger {
 	}
 	
 	public void war(){
-		System.out.printf("WAR!\n");
+		System.out.printf("WAR!\n\n");
 	}
 	
 	public void gameWinner(Players gameWinner){
