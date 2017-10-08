@@ -14,10 +14,10 @@ public interface WarInterface {
     
     public Players determineRoundWinner();
 
-    public void determineGameWinner();
+    public Players determineGameWinner();
     
     public void awardWinner();
 
-    public void playGame();
+    public Players playGame();
 
 }

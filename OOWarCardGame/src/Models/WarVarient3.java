@@ -96,35 +96,48 @@ public class WarVarient3 implements WarInterface {
 			return null;
 	}
 
-	public void determineGameWinner() {
+	public Players determineGameWinner() {
 		int player1Score = player1.getScore();
 		int player2Score = player2.getScore();
 		int player3Score = player3.getScore();
 
 		// A single winner
-		if (player1Score > player2Score && player1Score > player3Score)
+		if (player1Score > player2Score && player1Score > player3Score){
 			log.gameWinner(player1);
-		else if (player2Score > player1Score && player2Score > player3Score)
+			return player1;
+		}
+		else if (player2Score > player1Score && player2Score > player3Score){
 			log.gameWinner(player2);
-		else if (player3Score > player2Score && player3Score > player2Score)
+			return player2;
+		}
+		else if (player3Score > player2Score && player3Score > player2Score){
 			log.gameWinner(player3);
-
+			return player3;
+		}
 		// A draw between 2 or more players
-		else if (player1Score == player2Score && player1Score == player3Score)
+		else if (player1Score == player2Score && player1Score == player3Score){
 			log.fullDraw();
-		else if (player1Score == player2Score)
+			return new Players (player1.getName() + " " + player2.getName() + " " + player3.getName());
+		}
+		else if (player1Score == player2Score){
 			log.draw(player1, player2);
-		else if (player1Score == player3Score)
+			return new Players (player1.getName() + " " +player2.getName());
+		}
+		else if (player1Score == player3Score){
 			log.draw(player2, player3);
-		else
+			return new Players (player2.getName() + " " +player3.getName());
+		}
+		else{
 			log.draw(player2, player3);
+			return null;
+		}
 	}
 
 	public void awardWinner() {
 		winner.addScore(downPile.size());
 	}
 
-	public void playGame() {
+	public Players playGame() {
 		log.setPlayers(player1, player2, player3);
 		dealCardsToPlayers();
 
@@ -138,6 +151,6 @@ public class WarVarient3 implements WarInterface {
 			log.currentScore(player1.getScore(), player2.getScore(), player3.getScore());
 			downPile.clear();
 		}
-		determineGameWinner();
+		return determineGameWinner();
 	}
 }

@@ -30,8 +30,8 @@ public class TwoPlayerWar implements WarInterface{
     	int deckSize = gameDeck.size();
     	int playerDeckSize = deckSize/2;
     	
-    	if(playerDeckSize%2 != 0)
-    		playerDeckSize--;
+//    	if(playerDeckSize%2 != 0)
+//    		playerDeckSize--;
     	
     	for(int i = 0; i < playerDeckSize; i++){
     		player1Deck.add(gameDeck.get(i));
@@ -94,16 +94,21 @@ public class TwoPlayerWar implements WarInterface{
     	winner.addScore(downPile.size());
     }
     
-    public void determineGameWinner(){
-    	if(player1.getScore() > player2.getScore())
+    public Players determineGameWinner(){
+    	if(player1.getScore() > player2.getScore()){
     		log.gameWinner(player1);
-    	else if(player1.getScore() < player2.getScore())
+    		return player1;
+    	}
+    	else if(player1.getScore() < player2.getScore()){
     		log.gameWinner(player2);
+    		return player2;
+    	}
     	else
     		log.draw();
+    		return new Players(player1.getName() + " " + player2.getName());
     }
     
-    public void playGame(){
+    public Players playGame(){
     	log.setPlayers(player1, player2);
 		int counter = 0;
 		
@@ -125,6 +130,6 @@ public class TwoPlayerWar implements WarInterface{
     		log.currentScore(player1.getScore(), player2.getScore());
     		downPile.clear();
     	}
-    	determineGameWinner();
+    	return determineGameWinner();
     }
 }
