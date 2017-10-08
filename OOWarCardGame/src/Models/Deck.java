@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
+	
 	String[] suits = { "HEARTS", "SPADES", "CLUBS", "DIAMONDS" };
 	ArrayList<Card> cards;
 	int initialDeckSize = 52;

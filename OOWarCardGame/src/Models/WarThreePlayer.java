@@ -2,8 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 
-public class WarThreePlayer extends War2{
-	Pile discardPile;
+public class WarThreePlayer extends War{
 	ArrayList<Card> deck;
 	Players playerOne;
 	Players playerTwo;
@@ -18,7 +17,7 @@ public class WarThreePlayer extends War2{
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
 		this.playerThree = playerThree;
-		discardPile = new Pile();
+		//discardPile = 
 		this.deck = deck;
 	}
 

@@ -2,7 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 
-public class WarVarient1 extends War2{
+public class WarVarient1 extends War{
 	
 	Players player1, player2;
 	ArrayList<Card> player1Deck, player2Deck;
