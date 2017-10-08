@@ -47,7 +47,7 @@ public class Players {
 	}
 	
 	public int getDeckSize(){
-		return playerDeck.getDeck().size();
+		return playerDeck.getCardsInDeck().size();
 	}
 	
 	public void setScore(int newScore) {
