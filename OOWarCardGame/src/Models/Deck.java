@@ -7,6 +7,7 @@ public class Deck {
 	
 	String[] suits = { "HEARTS", "SPADES", "CLUBS", "DIAMONDS" };
 	ArrayList<Card> cards;
+	
 	public Deck() {
 		cards = new ArrayList<Card>();
 		createOrderedDeck();
@@ -24,20 +25,20 @@ public class Deck {
 	public void clearDeck() {
 		cards.clear();
 	}
-	/*
+	
 	public void shuffleDeck() {
 		Collections.shuffle(cards);
 	}
-	*/
+	
 	public ArrayList<Card> getCardsInDeck() {
 		return cards;
 	}
-	/*
+	
 	public ArrayList<Card> getShuffledDeck() {
 		Collections.shuffle(cards);
 		return cards;
 	}
-	*/
+	
 	public void showCards() {
 		for (Card card : cards) {
 			System.out.println(card);
@@ -73,7 +74,7 @@ public class Deck {
 	public void addCard(Card card) {
 		cards.add(card);
 	}
-	
+	/**
 	public void giveDecksToPlayers(Players...playersArray) {
 		int playerCount = playersArray.length;
 		if(playerCount % 2 == 1){
@@ -84,5 +85,5 @@ public class Deck {
 		}
 		
 	}
-
+	**/
 }

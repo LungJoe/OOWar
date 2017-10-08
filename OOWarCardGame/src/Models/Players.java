@@ -5,27 +5,26 @@ import java.util.ArrayList;
 public class Players {
 	String name;
 	int score;
-	//ArrayList<Card> playerDeck;
-	Deck playerDeck; 
+	ArrayList<Card> playerDeck;
+
 
 	public Players(String name) {
-		//playerDeck = new ArrayList<Card>();
+		playerDeck = new ArrayList<Card>();
 		this.name = name;
-		this.playerDeck = null;
 		score = 0;
 	}
 	
-	public Deck getDeck() {
+	public ArrayList<Card> getDeck() {
 		return playerDeck;
 	}
 	
-	public void setDeck(Deck deck) {
+	public void setDeck(ArrayList<Card> deck) {
 		this.playerDeck = deck;
 	}
 	
 	public Card drawCard() {
 		try{
-			return playerDeck.getNextCard();
+			return playerDeck.remove(0);
 		}catch(IndexOutOfBoundsException e){
 			return null;
 		}
@@ -47,7 +46,7 @@ public class Players {
 	}
 	
 	public int getDeckSize(){
-		return playerDeck.getCardsInDeck().size();
+		return playerDeck.size();
 	}
 	
 	public void setScore(int newScore) {
@@ -59,12 +58,12 @@ public class Players {
 	}
 
 	public void giveCards(ArrayList<Card> cardsRecieved) {
-		//for(Card card : cardsRecieved) {
-		playerDeck.addCards(cardsRecieved);
-		//}
+		for(Card card : cardsRecieved) {
+		playerDeck.add(card);
+		}
 	}
 	
-	public void printDeck(){
-		playerDeck.showCards();
-	}
+	//public void printDeck(){
+	//	playerDeck.showCards();
+	//}
 }

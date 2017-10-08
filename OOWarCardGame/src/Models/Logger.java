@@ -1,52 +1,37 @@
 package Models;
 
-public class Logger {
-	Players player1, player2, player3;
-	
-	
-	public void setPlayers(Players p1, Players p2){
-		player1 = p1;
-		player2 = p2;
-	}
-	
-	public void setThreePlayers(Players p1, Players p2, Players p3){
-		player1 = p1;
-		player2 = p2;
-		player3 = p3;
-	}
-	
-	public void initialDraw(Card cardA, Card cardB){
-		System.out.println(player1.getName() + " plays \t" + cardA.toString() + " as up card.");
-		System.out.println(player2.getName() + " plays \t" + cardB.toString() + " as up card.");
-	}
-	
-	public void initialDrawThreePlayer(Card cardA, Card cardB, Card cardC){
-		System.out.println(player1.getName() + " plays \t" + cardA.toString() + " as up card.");
-		System.out.println(player2.getName() + " plays \t" + cardB.toString() + " as up card.");
-		System.out.println(player3.getName() + " plays \t" + cardC.toString() + " as up card.");
-	}
+import java.util.ArrayList;
 
+public class Logger {
+	ArrayList<Players> playerList = new ArrayList<Players>();
+	
+	
+	public void setPlayers(Players...players){
+		for(int i = 0; i < players.length; i++){
+			playerList.add(players[i]);
+		}
+	}
+	
+	public void initialDraw(Card...cards){
+		for(int i = 0; i < cards.length; i++){
+			System.out.println(playerList.get(i).getName() + " plays \t" + cards[i].toString() + " as up card.");
+		}
+	}
 	
 	public void roundWinner(Players winner){
 		System.out.println(winner.getName() + " wins the round!");
 	}
 	
-	public void currentScore(int player1Score, int player2Score){
-		System.out.printf("SCORE is %s %d, %s %d\n\n", 
-				player1.getName(), player1Score, 
-				player2.getName(), player2Score);
+	public void currentScore(Integer...scores){
+		String scorePrintout = "SCORE is\t";
+		for(int i = 0; i < scores.length; i++){
+			scorePrintout += (playerList.get(i).getName() + ": " + scores[i] + "\t");
+		}
+		System.out.println(scorePrintout + "\n");
 	}
 	
-	public void currentScoreThreePlayer(int player1Score, int player2Score, int player3Score){
-		System.out.printf("SCORE is %s %d, %s %d, %s %d\n\n",
-		player1.getName(), player1Score, 
-		player2.getName(), player2Score,
-		player3.getName(), player3Score);
-
-	}
-	
-	public void war(Card firstCard, Card secondCard){
-		System.out.printf("\nWAR! %s matched %s\n\n", firstCard.toString(), secondCard.toString());
+	public void war(){
+		System.out.printf("WAR!\n");
 	}
 	
 	public void gameWinner(Players gameWinner){
@@ -59,6 +44,18 @@ public class Logger {
 	public void draw(){
 		System.out.println("----------------------------------\n"
 				+ "It's a DRAW!"
+				+ "\n----------------------------------" );
+	}
+	
+	public void draw(Players winner1, Players winner2){
+		System.out.println("----------------------------------\n"
+				+ "It's a DRAW between " + winner1.getName() + " and " + winner2.getName()
+				+ "\n----------------------------------" );
+	}
+	
+	public void fullDraw(){
+		System.out.println("----------------------------------\n"
+				+ "It's a three way DRAW!"
 				+ "\n----------------------------------" );
 	}
 	
