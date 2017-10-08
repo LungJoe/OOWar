@@ -28,13 +28,11 @@ public class WarVarient3 implements WarInterface {
 
 	public void splitDeck() {
 		int deckSize = gameDeck.size();
-
 		while (deckSize % 3 != 0) {
 			gameDeck.remove(0);
 			deckSize = gameDeck.size();
 		}
 		int playerDeckSize = deckSize / 3;
-
 		for (int i = 0; i < playerDeckSize; i++) {
 			player1Deck.add(gameDeck.get(i));
 			player2Deck.add(gameDeck.get(playerDeckSize + i));
@@ -80,7 +78,6 @@ public class WarVarient3 implements WarInterface {
 	public Players determineRoundWinner() {
 		log.initialDraw(player1Upcard, player2Upcard, player3Upcard);
 		compareValue = comparer.CompareThreeCards(player1Upcard, player2Upcard, player3Upcard);
-
 		if (compareValue == 1) {
 			log.roundWinner(player1);
 			return player1;
@@ -101,7 +98,6 @@ public class WarVarient3 implements WarInterface {
 		int player2Score = player2.getScore();
 		int player3Score = player3.getScore();
 
-		// A single winner
 		if (player1Score > player2Score && player1Score > player3Score){
 			log.gameWinner(player1);
 			return player1;
@@ -114,7 +110,6 @@ public class WarVarient3 implements WarInterface {
 			log.gameWinner(player3);
 			return player3;
 		}
-		// A draw between 2 or more players
 		else if (player1Score == player2Score && player1Score == player3Score){
 			log.fullDraw();
 			return new Players (player1.getName() + " " + player2.getName() + " " + player3.getName());
@@ -140,13 +135,11 @@ public class WarVarient3 implements WarInterface {
 	public Players playGame() {
 		log.setPlayers(player1, player2, player3);
 		dealCardsToPlayers();
-
 		while (player1.hasCards() && player2.hasCards() && player3.hasCards()) {
 			setUpRound();
 			winner = determineRoundWinner();
 			if (winner == null)
 				break;
-
 			awardWinner();
 			log.currentScore(player1.getScore(), player2.getScore(), player3.getScore());
 			downPile.clear();
