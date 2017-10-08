@@ -9,8 +9,8 @@ public class WarVarient1 extends War{
 	Card player1Upcard, player2Upcard;
 	static int maxNumberOfRounds = 10000;
 
-    public WarVarient1(Players player1, Players player2, ArrayList<Card> deck) {
-    	super(deck);
+    public WarVarient1(Players player1, Players player2) {
+    	super();
     	this.player1 = player1;
     	this.player2 = player2;
     	
@@ -22,6 +22,8 @@ public class WarVarient1 extends War{
     	this.numberOfRounds = numberOfRounds;
     }
     */
+    
+    /*
     private void splitDeck(){
     	int deckSize = gameDeck.size();
     	int playerDeckSize = deckSize/2;;
@@ -37,6 +39,7 @@ public class WarVarient1 extends War{
     	player1.giveCards(player1Deck);
     	player2.giveCards(player2Deck);
     }
+    */
     
     private Players determineRoundWinner(){
     	log.initialDraw(player1Upcard, player2Upcard);
@@ -71,7 +74,7 @@ public class WarVarient1 extends War{
     
     private Players war(){
     	Players warWinner;
-    	log.war();
+    	log.war(player1Upcard, player2Upcard);
     	try{
     		setUpWar();
     		setUpRound();
@@ -83,7 +86,8 @@ public class WarVarient1 extends War{
     
     public void awardWinner(){
     	winner.giveCards(downPile);
-		winner.setScore(winner.getScore() + downPile.size());
+		//winner.setScore(winner.getScore() + downPile.size());
+    	winner.addScore(downPile.size());
     }
     
     private void determineGameWinner(){

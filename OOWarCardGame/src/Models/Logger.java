@@ -45,13 +45,13 @@ public class Logger {
 
 	}
 	
-	public void war(){
-		System.out.println("WAR!\n");
+	public void war(Card firstCard, Card secondCard){
+		System.out.printf("\nWAR! %s matched %s\n\n", firstCard.toString(), secondCard.toString());
 	}
 	
 	public void gameWinner(Players gameWinner){
 		System.out.printf("----------------------------------\n"
-							+ "%s won the game!"
+							+ "      %s won the game!"
 							+ "\n----------------------------------", 
 							gameWinner.getName());
 	}

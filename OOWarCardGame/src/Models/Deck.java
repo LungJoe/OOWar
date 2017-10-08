@@ -30,7 +30,7 @@ public class Deck {
 		Collections.shuffle(cards);
 	}
 	*/
-	public ArrayList<Card> getDeck() {
+	public ArrayList<Card> getCardsInDeck() {
 		return cards;
 	}
 	/*
@@ -70,6 +70,14 @@ public class Deck {
 
 	public void addCard(Card card) {
 		cards.add(card);
+	}
+	
+	public void giveDecksToPlayers(Players...playersArray) {
+		int playerCount = playersArray.length;
+		for(int i = 0; i < playerCount - 1; i++) {
+			playersArray[i].setDeck(split(playerCount));
+		}
+		playersArray[playerCount-1].setDeck(this);
 	}
 
 }
