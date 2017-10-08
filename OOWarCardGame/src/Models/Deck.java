@@ -7,11 +7,10 @@ public class Deck {
 	
 	String[] suits = { "HEARTS", "SPADES", "CLUBS", "DIAMONDS" };
 	ArrayList<Card> cards;
-	int initialDeckSize = 52;
 	public Deck() {
 		cards = new ArrayList<Card>();
 		createOrderedDeck();
-		Collections.shuffle(cards);
+		//Collections.shuffle(cards);
 	}
 
 	private void createOrderedDeck() {
@@ -61,7 +60,7 @@ public class Deck {
         if(numberOfPlayers == 1){
         	return this;
         }
-		int playerInitialDeckSize = initialDeckSize/numberOfPlayers;
+		int playerInitialDeckSize = cards.size()/numberOfPlayers;
         Deck subDeck = new Deck();
         ArrayList<Card> deckSection = new ArrayList<Card>();
         for (int i = 0; i < playerInitialDeckSize; i++) {
