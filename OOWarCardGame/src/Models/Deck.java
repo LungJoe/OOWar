@@ -58,11 +58,14 @@ public class Deck {
 	}
 
 	public Deck split(int numberOfPlayers) {
-        int playerInitialDeckSize = initialDeckSize/numberOfPlayers;
+        if(numberOfPlayers == 1){
+        	return this;
+        }
+		int playerInitialDeckSize = initialDeckSize/numberOfPlayers;
         Deck subDeck = new Deck();
         ArrayList<Card> deckSection = new ArrayList<Card>();
         for (int i = 0; i < playerInitialDeckSize; i++) {
-            deckSection.add(cards.remove(i));
+            deckSection.add(cards.remove(i + (numberOfPlayers - 2)));
         }
         subDeck.setCards(deckSection);
         return subDeck;
@@ -74,10 +77,9 @@ public class Deck {
 	
 	public void giveDecksToPlayers(Players...playersArray) {
 		int playerCount = playersArray.length;
-		for(int i = 0; i < playerCount - 1; i++) {
-			playersArray[i].setDeck(split(playerCount));
+		for(int i = 0; i < playerCount; i++) {
+			playersArray[i].setDeck(split(playerCount - i));
 		}
-		playersArray[playerCount-1].setDeck(this);
 	}
 
 }
